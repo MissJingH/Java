@@ -48,7 +48,169 @@ public class Room {
 	}
 	public void setUse(boolean isUse) {
 		this.isUse = isUse;
-	};
+	}
+}
+
+
+
+
+package 酒店管理系统;
+import java.util.Scanner;
+
+public class Hotle {
+	// 5层 10 个房间
+	Room[][] rooms;
+
+	public Hotle() {
+		this(5, 10);
+	}
+
+	public Hotle(int r, int c) {
+		super();
+		rooms = new Room[r][c];
+		String s;
+		for (int i = 0; i < r; i++) {
+			for (int j = 0; j < c; j++) {
+				if (i < 2) {
+					s = "标准间";
+				} else if (i < 4) {
+					s = "双人间";
+				} else {
+					s = "大床房";
+				}
+
+				rooms[i][j] = new Room(String.valueOf((i + 1) * 100 + j + 1), s);
+
+			}
+		}
+
+	}
+
+	public void showRoom() {
+		for (int i = 0; i < rooms.length; i++) {
+			for (int j = 0; j < rooms[i].length; j++) {
+				System.out.print(rooms[i][j] + "  ");
+			}
+			System.out.println();
+		}
+	}
+
+	public void checkin() {
+		System.out.println("请输入您的房间号：");
+		Scanner s = new Scanner(System.in);
+		String cno=s.next();
+		for (int i = 0; i < rooms.length; i++) {
+			for (int j = 0; j < rooms[i].length; j++) {
+				if(rooms[i][j].getNo().equals(cno)) {
+					rooms[i][j].setUse(false);
+					System.out.println("您已成功入住！");
+					System.out.println(rooms[i][j]);				
+					break;
+				}
+				
+			}//break;
+		
+		}
+		
+
+	}
+	public void checkout() {
+		System.out.println("请输入您的房间号：");
+		Scanner s = new Scanner(System.in);
+		String cno=s.next();
+		for (int i = 0; i < rooms.length; i++) {
+			for (int j = 0; j < rooms[i].length; j++) {
+				if(rooms[i][j].getNo().equals(cno)) {					
+					rooms[i][j].setUse(true);
+					System.out.println("您已成功退房！");
+					System.out.println(rooms[i][j]);
+					break;
+				}
+				
+			}//break;
+		
+		}
+	}
+	public void search() {
+		System.out.println("请输入您要查询的房间号：");
+		Scanner s = new Scanner(System.in);
+		String cno=s.next();
+		for (int i = 0; i < rooms.length; i++) {
+			for (int j = 0; j < rooms[i].length; j++) {
+				if(rooms[i][j].getNo().equals(cno)) {					
+					//rooms[i][j].isUse=true;
+					System.out.println(rooms[i][j]);
+					break;
+				}
+				
+			}//break;
+		
+		}
+	}
+
+	public void order() {
+		System.out.println("请输入预定房间号：");
+		Scanner s = new Scanner(System.in);
+		String cno=s.next();	
+		for (int i = 0; i < rooms.length; i++) {
+			for (int j = 0; j < rooms[i].length; j++) {
+				if(rooms[i][j].getNo().equals(cno)) {					
+					//rooms[i][j].isUse=true;
+					rooms[i][j].setUse(false);
+					System.out.println("您已预定成功！");
+					System.out.println(rooms[i][j]);
+					return;
+				}
+				
+			}//break;
+	}
+	}
+}
 	
 
+
+package 酒店管理系统;
+
+import java.util.Scanner;
+
+//import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+		System.out.println("欢迎使用酒店管理系统，房价列表如下所示：");
+		Hotle Jinjing = new Hotle();
+		Jinjing.showRoom();
+		String cno;
+		//Scanner s = new Scanner(System.in);
+		Jinjing.order();
+		System.out.println("入住-in/退房-out/查询-s/所有房间表-show/退出-e");
+		Scanner s = new Scanner(System.in);
+		cno=s.next();
+		while("e".equals(cno)) {
+			System.out.println("入住-in/退房-out/查询-s/所有房间表-show/退出-e");
+			//Scanner s = new Scanner(System.in);
+			cno=s.next();
+		if ("in".equals(cno)) {
+			Jinjing.checkin();
+		} if ("out".equals(cno)) {
+			Jinjing.checkout();
+		} if("s".equals(cno)) {
+			Jinjing.search();
+		}
+		if("show".equals(cno)) {
+			Jinjing.showRoom();
+		}
+		}
+		
+		
+		
+		
+		
+		
+        
+	
+	}
 }
+
+
