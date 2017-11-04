@@ -1,0 +1,54 @@
+package 酒店管理系统;
+
+public class Room {
+	private String no;
+	private String type;//标准  单人  大床
+	private boolean isUse=true; //true 占用
+	public String toString() {
+		//System.out.print(no);
+		//System.out.println;
+		return no+"--"+type+"--"+(isUse?"可用":"不可用");		
+	}
+	
+	
+	public Room() {
+		super();
+	}
+	
+	public Room(String no) {
+		super();
+		this.no = no;
+	}
+	public Room(String no, String type) {
+		super();
+		this.no = no;
+		this.type = type;
+	}
+	
+	public Room(String no, String type, boolean isUse) {
+		super();
+		this.no = no;
+		this.type = type;
+		this.isUse = isUse;
+	}
+	public String getNo() {
+		return no;
+	}
+	public void setNo(String no) {
+		this.no = no;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public boolean isUse() {
+		return isUse;
+	}
+	public void setUse(boolean isUse) {
+		this.isUse = isUse;
+	};
+	
+
+}
