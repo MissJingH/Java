@@ -28,8 +28,23 @@ List集合存储元素特点：1.有序 （存进去是这个顺序，取出来�
      遍历：for(int i=0;i<l.size();i++){
               Object o= l.get(i);
               System.out.println(o);
-           } 
-     
-     
-     
+           } 
+Set 集合存储元素特点:1.无序
+                    2.不可重复
+                 Set 是 Collection 的一个子接口继承Collection方法。
+     HashSet底层实际上是一个HashMap，HashMap底层是哈希表/散列表。
+          哈希表是，数组和单向链表的结合，哈希表本质是一个数组，只不过这个数组中的每一个元素又是一个单向链表（类似于字典）
+          每一个单向链表都有一个哈希值代表数组下标，在某个单向链表中的每一个节点上是hash值都是相等的
+          HashSet其实就是HashMap中的key部分，HashMap中的key有什么特点，HashMap中的key应该具有相同的特点。
+          HashMap和HashSet初始化容量都是16，默认加载因子是0.75（当存储到容量的75%时自动扩容）
+     关于往Set集合中存储的元素的HashCode和equals方法.存储在HashSet或者HashMap集合key部分的元素，需要重写hashCode和equals方法
+     SortedSet无序不可重复，并按照顺序排列，被存储的元素需要重写compareto方法
+          
+          
+          
+          
+          
+          
+          
+          
 
