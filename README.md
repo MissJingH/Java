@@ -39,8 +39,14 @@ Set 集合存储元素特点:1.无序
           HashMap和HashSet初始化容量都是16，默认加载因子是0.75（当存储到容量的75%时自动扩容）
      关于往Set集合中存储的元素的HashCode和equals方法.存储在HashSet或者HashMap集合key部分的元素，需要重写hashCode和equals方法
      SortedSet无序不可重复，并按照顺序排列，被存储的元素需要重写compareto方法
+ Map的常用的方法:clear（）;清空Map
+                containsKey(Object key)判断Map中是否包含这样的key
+                containsValue(Object vaule)判断Map中是否包含这样的value
+                .....不想写了....
+                remove（Object key）;通过key删除键值对
+  Map中key重复了value采用覆盖的形式;
+                
           
-          
           
           
           
